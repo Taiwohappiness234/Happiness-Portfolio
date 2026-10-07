@@ -10,6 +10,33 @@ menuBtn.addEventListener("click", () => {
     menuBtn.innerHTML = `<i class="fa-solid fa-xmark text-3xl"></i>`;
   }
 });
+
+// Close mobile menu when a navigation link is clicked
+const mobileNavLinks = mobileMenu.querySelectorAll(".nav-link");
+
+mobileNavLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+
+    // Change X icon back to hamburger
+    menuBtn.innerHTML = `<i class="fa-solid fa-bars"></i>`;
+  });
+});
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    // Remove active style from all links
+    navLinks.forEach((navLink) => {
+      navLink.classList.remove("text-blue-600", "font-semibold");
+    });
+
+    // Add active style to the clicked link
+    link.classList.add("text-blue-600", "font-semibold");
+  });
+});
+
 const contactForm = document.getElementById("contactForm");
 const sendButton = document.getElementById("sendButton");
 const formStatus = document.getElementById("formStatus");
